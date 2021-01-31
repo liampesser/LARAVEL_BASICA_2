@@ -9,19 +9,13 @@ class Work extends Model
 {
     use HasFactory;
 
-    /**
-     * GETTER du client du work
-     */
+    // GETTER du client du work
     public function client() {
       return $this->belongsTo('App\Models\Client');
     }
 
-    /**
-     * GETTER des tags du work
-     */
+    // GETTER des tags du work
     public function tags() {
       return $this->belongsToMany('App\Models\Tag', 'works_has_tags');
     }
-
-
 }

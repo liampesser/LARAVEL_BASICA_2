@@ -9,9 +9,7 @@ class Categorie extends Model
 {
     use HasFactory;
 
-    /**
-     * GETTER des posts de la catégorie
-     */
+    // GETTER des posts de la catégorie
     public function posts() {
       return $this->hasMany('App\Models\Post');
     }

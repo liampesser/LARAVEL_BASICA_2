@@ -9,9 +9,7 @@ class Tag extends Model
 {
     use HasFactory;
 
-    /**
-     * GETTER des works du tag
-     */
+    // GETTER des works du tag
     public function works() {
       return $this->belongsToMany('App\Models\Work', 'works_has_tags');
     }

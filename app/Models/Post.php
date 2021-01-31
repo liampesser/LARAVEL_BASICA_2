@@ -9,9 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    /**
-     * GETTER de la categorie du post
-     */
+    // GETTER de la catégorie du post
     public function categorie() {
       return $this->belongsTo('App\Models\Categorie');
     }
