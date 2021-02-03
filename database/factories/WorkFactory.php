@@ -22,7 +22,7 @@ class WorkFactory extends Factory
     public function definition()
     {
         return [
-          'title' => $this->faker->words(5, true),
+          'title' => $this->faker->words(2, true),
           'content' => $this->faker->paragraph(2),
           'image' => $this->faker->numberBetween($min = 1, $max = 8),
           'inSlider' => $this->faker->numberBetween($min = 0, $max = 1),

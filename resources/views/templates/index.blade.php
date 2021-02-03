@@ -16,8 +16,13 @@
 
 
     @include('templates.partials._nav')
+
+    @yield('hero')
+
     @include('templates.partials._main')
+
     @include('templates.partials._footer')
+
     @include('templates.partials._scripts')
 
 
