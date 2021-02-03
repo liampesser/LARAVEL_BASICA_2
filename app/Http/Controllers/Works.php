@@ -15,5 +15,9 @@ class Works extends Controller
       return view('works.index', compact('works'));
   }
 
+  public function show(Work $work) {
+        return view('works.show', compact('work'));
+    }
+
 
 }

@@ -4,7 +4,6 @@
  --}}
 
 @extends('templates.index')
-
 @extends('templates.hero')
 
 {{-- TITLE DE LA PAGE --}}
@@ -17,7 +16,7 @@
   Our Portfolio
 @endsection
 
-{{-- ZONE DYNAMIQUE --}}
+{{-- ZONE CONTENT --}}
 @section('content')
 
   <div class="section">

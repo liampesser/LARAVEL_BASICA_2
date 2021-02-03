@@ -23,7 +23,7 @@ class WorkFactory extends Factory
     {
         return [
           'title' => $this->faker->words(2, true),
-          'content' => $this->faker->paragraph(2),
+          'content' => $this->faker->paragraph(4),
           'image' => $this->faker->numberBetween($min = 1, $max = 8),
           'inSlider' => $this->faker->numberBetween($min = 0, $max = 1),
           'created_at' => $this->faker->dateTimeBetween('-30 days', now()),
