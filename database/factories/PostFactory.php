@@ -22,8 +22,8 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-          'title' => $this->faker->words(5, true),
-          'content' => $this->faker->paragraph(2),
+          'title' => $this->faker->words(3, true),
+          'content' => $this->faker->paragraph(10),
           'image' => $this->faker->numberBetween($min = 1, $max = 4),
           'created_at' => $this->faker->dateTimeBetween('-30 days', now()),
           'categorie_id' => $this->faker->numberBetween($min = 1, $max = 10),

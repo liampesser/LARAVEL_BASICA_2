@@ -54,6 +54,7 @@
 
   <hr>
 
+  {{-- VUE SIMILAR WORKS --}}
   @include('works._similar', ['works' => \App\Models\Work::whereHas('tags', function ($query) use ($work) {
     return $query->whereIn('name', $work->tags->pluck('name'));
     })

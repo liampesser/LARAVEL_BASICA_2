@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Posts;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,23 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-  // ROUTE PAR DEFAUT
-  // PATTERN: /
-  // VUE: index
-  Route::get('/', function () {
-    return view('templates.index');
-    })-> name('home');
-
-  // ROUTEUR DES WORKS
-  require __DIR__ . '/works.php';
-
-  // ROUTEUR DES POSTS
-  require __DIR__ . '/posts.php';
-
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
+  // LISTE DES POSTS
+  // PATTERN: /posts
+  // CTRL: Posts
+  // ACTION: index
+  Route::get('/posts', [Posts::class, 'index'])->name('posts.index');
