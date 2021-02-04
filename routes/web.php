@@ -13,18 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+  // ROUTEUR DES WORKS
+    require __DIR__ . '/works.php';
+
+  // ROUTEUR DES POSTS
+    require __DIR__ . '/posts.php';
+
   // ROUTE PAR DEFAUT
   // PATTERN: /
   // VUE: index
-  Route::get('/', function () {
-    return view('templates.index');
-    })-> name('home');
+    Route::get('/', function () {
+      return view('templates.index');
+      })-> name('home');
 
-  // ROUTEUR DES WORKS
-  require __DIR__ . '/works.php';
-
-  // ROUTEUR DES POSTS
-  require __DIR__ . '/posts.php';
+  // PAGE CONTACT
+  // PATTERN: /contact
+  // VUE: contact
+    Route::get('/contact', function () {
+      return view('pages.contact');
+    })-> name('contact');
 
 
 

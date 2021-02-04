@@ -15,6 +15,6 @@
 
     {{-- VUE DE MORE WORKS --}}
     @include('works._more_btn')
-    
+
   </div>
 </div>
