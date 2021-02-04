@@ -12,7 +12,7 @@
       </div>
 
       <div class="single-post-image">
-        <img src="{{ asset('assets/img/blog/' . $post->image) }}" alt="{{ $post->title }}">
+        <img src="{{ asset('assets/img/blog/' . $post->image . '.jpg') }}" alt="{{ $post->title }}">
       </div>
 
       <div class="single-post-info">
@@ -21,7 +21,7 @@
 
       <div class="single-post-content">
         <p>{{ Str::words($post->content, 50, ' ...') }}</p>
-      <a href="blog-post.html" class="btn">Read more</a>
+      <a href="{{ route('posts.show', ['post' => $post->id, 'slug' => Str::slug($post->title, '-')]) }}" class="btn">Read more</a>
       </div>
     </div>
   </div>
