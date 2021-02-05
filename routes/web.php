@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
   // PATTERN: /
   // VUE: index
     Route::get('/', function () {
-      return view('templates.index');
+      return view('pages.home');
       })-> name('home');
 
   // PAGE CONTACT

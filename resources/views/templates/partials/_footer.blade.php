@@ -7,7 +7,7 @@
       <div class="col-footer col-md-4 col-xs-6">
         <h3>Contact Us</h3>
         <p class="contact-us-details">
-            <b>Address:</b> 123 Downtown Avenue, Manhattan, New York, United States of America<br/>
+            <b>Address:</b> Rue Charles Deliège 9, 4623 Fléron<br/>
             <b>Phone:</b> +1 123 45678910<br/>
             <b>Fax:</b> +1 123 45678910<br/>
             <b>Email:</b> <a href="mailto:info@yourcompanydomain.com">info@yourcompanydomain.com</a>
