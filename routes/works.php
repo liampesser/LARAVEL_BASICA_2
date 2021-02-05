@@ -28,3 +28,9 @@ use App\Http\Controllers\Works;
           ->where('work', '[1-9][0-9]*')
           ->where('slug', '[a-z0-9][a-z0-9\-]*')
           ->name('works.show');
+
+  // MORE WORKS
+  // PATTERN: /works/ajax/more
+  // CTRL: Works
+  // ACTION: more
+    Route::get('/works/ajax/more', [Works::class, 'more'])->name('works.ajax.more');

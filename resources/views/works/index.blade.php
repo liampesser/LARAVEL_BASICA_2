@@ -16,6 +16,10 @@
   Our Portfolio
 @endsection
 
+@section('scripts')
+  <script src="{{ asset('assets/js/works/index.js')}}"></script>
+@endsection
+
 {{-- ZONE CONTENT --}}
 @section('content')
 

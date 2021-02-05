@@ -10,7 +10,7 @@
         <div class="col-sm-12">
           <div class="carousel-content centered">
             <h2 class="animation animated-item-1">{{ $work->title }}</h2>
-            <p class="animation animated-item-2">{{ Str::words($work->content, 25, ' ...') }}</p>
+            <p class="animation animated-item-2">{{ Str::words($work->content, 25, '.') }}</p>
           </div>
         </div>
       </div>

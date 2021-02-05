@@ -29,4 +29,19 @@ class Works extends Controller
         return view('works.show', compact('work'));
     }
 
+    /**
+     * More works
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
+    public function more(Request $request) {
+      $limit = (isset($request->limit)) ? $request->limit : 10;
+
+      $works = Work::orderBy('created_at', 'DESC')
+                      ->take($limit)
+                      ->offset($request->offset)
+                      ->get();
+      return view('works._list', compact('works'));
+    }
+
 }

@@ -7,7 +7,7 @@
   <div class="container">
     <div class="row">
 
-      <ul class="grid cs-style-2">
+      <ul class="grid cs-style-2" id="works_list">
         @include('works._list')
       </ul>
 
