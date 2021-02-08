@@ -9,8 +9,15 @@ class Post extends Model
 {
     use HasFactory;
 
-    // GETTER de la catégorie du post
+    protected $fillable = ['title', 'content', 'image', 'categorie_id'];
+
+    /**
+     * GETTER de la catégorie du post
+     * @return [type] [description]
+     */
     public function categorie() {
       return $this->belongsTo('App\Models\Categorie');
     }
+
+
 }

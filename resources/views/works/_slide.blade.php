@@ -4,7 +4,7 @@
 --}}
 
 @foreach ($works as $index => $work)
-  <div class="item {{ ($index === 0) ? 'active' : '' }}" style="background-image: url({{ asset('assets/img/portfolio/' . $work->image . '.jpg') }})">
+  <div class="item {{ ($index === 0) ? 'active' : '' }}" style="background-image: url({{ asset('assets/img/portfolio/' . $work->image) }})">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">

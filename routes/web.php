@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+  // ROUTEUR GESTION DES POSTS
+    require __DIR__ . '/admin_posts.php';
+
   // ROUTEUR DES WORKS
     require __DIR__ . '/works.php';
 
