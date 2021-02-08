@@ -15,6 +15,13 @@
                 <li><a href="{{ route('works.index') }}">Portfolio</a></li>
                 <li><a href="{{ route('posts.index') }}">Blog</a></li>
                 <li><a href="{{ route('contact') }}">Contact</a></li>
+                @if (!Auth::check())
+                  <li><a href="{{ route('login') }}">Login</a></li>
+                  <li><a href="{{ route('register') }}">Sign up</a></li>
+                @endif
+                @if (Auth::check())
+                  <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                @endif
             </ul>
         </div>
     </div>
