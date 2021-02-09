@@ -21,7 +21,7 @@ class AdminPosts extends Controller
     }
 
   /**
-   * Formulaire d'édition d'un post
+   * Formulaire de création d'un post
    * @return [type] [description]
    */
      public function create() {
@@ -59,6 +59,50 @@ class AdminPosts extends Controller
         // On utilise $request->only pour récupérer le nom de l'image dans la db
         Post::create($request->only(['title', 'content', 'categorie_id']) + ['image' => $imageName]);
         return redirect()->route('admin.posts.index');
+    }
+
+    /**
+     * Formulaire d'édition d'un post
+     * @param  Post   $post [description]
+     * @return [type]       [description]
+     */
+    public function edit(Post $post) {
+      return view('admin.posts.edit', compact('post'));
+    }
+
+    /**
+     * Edition d'un post
+     * @param  Request $request [description]
+     * @param  Post    $post    [description]
+     * @return [type]           [description]
+     */
+    public function update(Request $request, Post $post) {
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'image' => 'nullable',
+            'categorie_id' => 'required'
+        ]);
+
+        if ($request->hasFile('image')):
+            // On renomme l'image avec le timestamp UNIX actuel + l'extension
+            $imageName = time().'.'.$request->image->extension();
+            // On enregistre l'image dans le dossier storage
+            $request->image->storeAs('posts/images', $imageName);
+            // On déplace l'image du dossier storage vers le dossier public
+            $request->image->move(public_path('assets/img/blog'), $imageName);
+            // On utilise $request->only pour récupérer le nom de l'image dans la db
+            $post->update($request->only(['title', 'content', 'categorie_id']) + ['image' => $imageName]);
+        else:
+            $post->update($request->only(['title', 'content', 'categorie_id']));
+        endif;
+
+        return redirect()->route('admin.posts.index');
+    }
+
+    public function destroy(Post $post) {
+      $post->delete();
+      return redirect()->route('admin.posts.index');
     }
 
 }

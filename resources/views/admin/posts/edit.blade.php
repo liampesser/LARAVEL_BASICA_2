@@ -10,7 +10,7 @@
 <x-app-layout>
   <x-slot name="header">
       <h2 class="font-semibold text-2xl text-gray-800 leading-tight">
-          {{ __('Ajout d\'un post') }}
+          {{ __('Edition d\'un post') }}
       </h2>
   </x-slot>
 
@@ -22,19 +22,20 @@
                     <a href="{{ route('admin.posts.index') }}" class="text-blue-400">Revenir sur la gestion des posts</a>
                   </div>
                   <h3 class="my-2 text-left py-2 text-2xl">Données du post</h3>
-                  <form action="{{ route('admin.posts.store') }}" method="post" enctype="multipart/form-data">
+                  <form action="{{ route('admin.posts.update', $post->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    {{ method_field('PUT') }}
                     <div>
                       <label for="title">Titre</label>
                     </div>
                     <div class="mb-2 w-3/12">
-                      <input class="w-full border" type="text" name="title" id="title">
+                      <input class="w-full border" type="text" name="title" id="title" value="{{ $post->title }}">
                     </div>
                     <div>
                       <label for="content">Contenu</label>
                     </div>
                     <div class="mb-2 w-4/12">
-                      <textarea class="w-full border h-32" name="content" id="content"></textarea>
+                      <textarea class="w-full border h-32" name="content" id="content">{{ $post->content }}</textarea>
                     </div>
                     <div>
                       <label for="image">Image</label>
@@ -48,7 +49,9 @@
                     <div class="mb-4">
                       <select name="categorie_id" id="categorie_id">
                         @foreach ($categories as $categorie)
-                          <option class="w-full border" value="{{ $categorie->id }}">{{ $categorie->name }}</option>
+                          <option class="w-full border" value="{{ $categorie->id }}" @php if($categorie->id === $post->categorie_id) {echo 'selected';} @endphp>
+                            {{ $categorie->name }}
+                          </option>
                         @endforeach
                       </select>
                     </div>
