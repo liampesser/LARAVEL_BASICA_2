@@ -9,7 +9,7 @@ class AdminPosts extends Controller
 {
 
   /**
-   * Index des posts
+   * Liste des posts
    * @param  integer $limit [description]
    * @return [type]         [description]
    */

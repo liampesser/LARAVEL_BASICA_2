@@ -7,7 +7,7 @@
 @foreach ($posts as $post)
   <div class="row">
     <div class="col-xs-4">
-      <a href="blog-post.html">
+      <a href="{{ route('posts.show', ['post' => $post->id, 'slug' => Str::slug($post->title, '-')]) }}">
         <img src="{{ asset('assets/img/blog/' . $post->image) }}" alt="{{ $post->title }}">
       </a>
     </div>
