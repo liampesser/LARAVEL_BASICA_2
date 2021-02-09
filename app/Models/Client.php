@@ -9,7 +9,10 @@ class Client extends Model
 {
     use HasFactory;
 
-    // GETTER des works du client
+    /**
+     * GETTER des works du client
+     * @return [type] [description]
+     */
     public function works() {
       return $this->hasMany('App\Models\Work');
     }

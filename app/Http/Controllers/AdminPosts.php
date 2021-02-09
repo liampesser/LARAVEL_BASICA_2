@@ -9,7 +9,7 @@ class AdminPosts extends Controller
 {
 
   /**
-   * Liste des posts
+   * Fonction qui retourne la vue de liste des derniers posts ajoutés
    * @param  integer $limit [description]
    * @return [type]         [description]
    */
@@ -21,7 +21,7 @@ class AdminPosts extends Controller
     }
 
   /**
-   * Formulaire de création d'un post
+   * Fonction qui retourne la vue du formulaire de création d'un post
    * @return [type] [description]
    */
      public function create() {
@@ -29,7 +29,7 @@ class AdminPosts extends Controller
     }
 
     /**
-     * Création d'un nouvel objet Post
+     * Fonction de création d'un nouvel objet Post
      * https://codimth.com/blog/web/laravel/how-upload-files-laravel-8
      * https://www.remotestack.io/how-to-upload-file-in-laravel-with-validation/
      * https://www.itsolutionstuff.com/post/laravel-8-image-upload-tutorial-exampleexample.html

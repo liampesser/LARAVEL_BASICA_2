@@ -24,24 +24,28 @@
                   <h3 class="my-2 text-left py-2 text-2xl">Données du post</h3>
                   <form action="{{ route('admin.posts.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    {{-- TITRE --------}}
                     <div>
                       <label for="title">Titre</label>
                     </div>
                     <div class="mb-2 w-3/12">
                       <input class="w-full border" type="text" name="title" id="title">
                     </div>
+                    {{-- CONTENU --------}}
                     <div>
                       <label for="content">Contenu</label>
                     </div>
                     <div class="mb-2 w-4/12">
                       <textarea class="w-full border h-32" name="content" id="content"></textarea>
                     </div>
+                    {{-- IMAGE --------}}
                     <div>
                       <label for="image">Image</label>
                     </div>
                     <div class="mb-2 w-4/12">
                       <input type="file" name="image" id="image">
                     </div>
+                    {{-- CATEGORIE --------}}
                     <div>
                       <label for="categorie">Catégorie</label>
                     </div>
@@ -52,6 +56,7 @@
                         @endforeach
                       </select>
                     </div>
+                    {{-- BOUTON SUBMIT --------}}
                     <div class="mb-2 w-2/12">
                       <button class="w-full h-10 px-5 my-2 transition-colors duration-150 bg-blue-400 rounded-lg focus:shadow-outline hover:bg-blue-500 text-white">Valider</button>
                     </div>

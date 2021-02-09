@@ -19,3 +19,15 @@ use App\Http\Controllers\AdminWorks;
   // CTRL: AdminWorks
   // ACTION: index
     Route::get('/admin/works', [AdminWorks::class, 'index'])->middleware(['auth'])->name('admin.works.index');
+
+  // AJOUT D'UN WORK : FORMULAIRE
+  // PATTERN: /admin/works/add/form
+  // CTRL: AdminWorks
+  // ACTION: create
+    Route::get('/admin/works/add/form', [AdminWorks::class, 'create'])->middleware(['auth'])->name('admin.works.create');
+
+  // AJOUT D'UN WORK : INSERT
+  // PATTERN: /admin/works/add/insert
+  // CTRL: AdminWorks
+  // ACTION: store
+    Route::post('/admin/works/add/insert', [AdminWorks::class, 'store'])->middleware(['auth'])->name('admin.works.store');

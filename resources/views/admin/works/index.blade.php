@@ -19,7 +19,7 @@
                   </div>
                   <h3 class="my-2 text-left py-2 text-2xl">Liste des works</h3>
                   <div class="my-2 text-left py-4">
-                    <a href="#" class="w-full py-2 px-4 transition-colors duration-150 bg-blue-400 rounded-lg focus:shadow-outline hover:bg-blue-500 text-white">
+                    <a href="{{ route('admin.works.create') }}" class="w-full py-2 px-4 transition-colors duration-150 bg-blue-400 rounded-lg focus:shadow-outline hover:bg-blue-500 text-white">
                       Ajouter un enregistrement
                     </a>
                   </div>
