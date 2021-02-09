@@ -30,7 +30,7 @@
                         <th class="border text-left px-4 py-2">Title</th>
                         <th class="border text-left px-4 py-2">Content</th>
                         <th class="border text-left px-4 py-2">Image</th>
-                        <th class="border text-left px-4 py-2">InSlider</th>
+                        <th class="border text-left px-4 py-2">In Slider</th>
                         <th class="border text-left px-4 py-2">Created at</th>
                         <th class="border text-left px-4 py-2">Updated at</th>
                         <th class="border text-left px-4 py-2">Client</th>

@@ -21,7 +21,7 @@ class AdminPosts extends Controller
     }
 
   /**
-   * Fonction qui retourne la vue du formulaire de création d'un post
+   * Fonction qui retourne la vue du formulaire de création d'un objet Post
    * @return [type] [description]
    */
      public function create() {
@@ -40,13 +40,13 @@ class AdminPosts extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable',
             'categorie_id' => 'required'
         ]);
 
         if ($request->hasFile('image')):
             // On renomme l'image avec le timestamp UNIX actuel + l'extension
-            $imageName = time().'.'.$request->image->extension();
+            $imageName = time().'.'.$request->image->getClientOriginalExtension();
             // On enregistre l'image dans le dossier storage
             $request->image->storeAs('posts/images', $imageName);
             // On déplace l'image du dossier storage vers le dossier public
@@ -62,7 +62,7 @@ class AdminPosts extends Controller
     }
 
     /**
-     * Formulaire d'édition d'un post
+     * Fonction qui retourne la vue du formulaire d'édition d'un post
      * @param  Post   $post [description]
      * @return [type]       [description]
      */
@@ -71,7 +71,7 @@ class AdminPosts extends Controller
     }
 
     /**
-     * Edition d'un post
+     * Fonction d'édition d'un objet Post
      * @param  Request $request [description]
      * @param  Post    $post    [description]
      * @return [type]           [description]
@@ -86,7 +86,7 @@ class AdminPosts extends Controller
 
         if ($request->hasFile('image')):
             // On renomme l'image avec le timestamp UNIX actuel + l'extension
-            $imageName = time().'.'.$request->image->extension();
+            $imageName = time().'.'.$request->image->getClientOriginalExtension();
             // On enregistre l'image dans le dossier storage
             $request->image->storeAs('posts/images', $imageName);
             // On déplace l'image du dossier storage vers le dossier public
@@ -100,6 +100,11 @@ class AdminPosts extends Controller
         return redirect()->route('admin.posts.index');
     }
 
+    /**
+     * Fonction de suppression d'un Post
+     * @param  Post   $post [description]
+     * @return [type]       [description]
+     */
     public function destroy(Post $post) {
       $post->delete();
       return redirect()->route('admin.posts.index');

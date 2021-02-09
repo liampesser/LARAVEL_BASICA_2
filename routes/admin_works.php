@@ -31,3 +31,21 @@ use App\Http\Controllers\AdminWorks;
   // CTRL: AdminWorks
   // ACTION: store
     Route::post('/admin/works/add/insert', [AdminWorks::class, 'store'])->middleware(['auth'])->name('admin.works.store');
+
+  // EDITION D'UN WORK : FORMULAIRE
+  // PATTERN: /admin/works/edit/form/{work}
+  // CTRL: AdminWorks
+  // ACTION: edit
+    Route::get('/admin/works/edit/form/{work}', [AdminWorks::class, 'edit'])->middleware(['auth'])->name('admin.works.edit');
+
+  // EDITION D'UN WORK : UPDATE
+  // PATTERN: /admin/works/edit/{work}
+  // CTRL: AdminWorks
+  // ACTION: update
+    Route::put('/admin/works/edit/{work}', [AdminWorks::class, 'update'])->middleware(['auth'])->name('admin.works.update');
+
+  // SUPPRESSION D'UN POST : DELETE
+  // PATTERN: /admin/works/delete/{work}
+  // CTRL: AdminWorks
+  // ACTION: delete
+    Route::delete('/admin/works/delete/{work}', [AdminWorks::class, 'destroy'])->middleware(['auth'])->name('admin.works.destroy');

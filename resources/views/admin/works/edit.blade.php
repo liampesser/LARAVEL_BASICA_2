@@ -1,6 +1,5 @@
 {{--
   Variables disponibles
-    - $works : ARRAY(Work)
     - $clients : ARRAY(Client)
     - $tags : ARRAY(Tag)
 --}}
@@ -13,7 +12,7 @@
 <x-app-layout>
   <x-slot name="header">
       <h2 class="font-semibold text-2xl text-gray-800 leading-tight">
-          {{ __('Ajout d\'un work') }}
+          {{ __('Edition d\'un work') }}
       </h2>
   </x-slot>
 
@@ -25,25 +24,26 @@
                     <a href="{{ route('admin.works.index') }}" class="text-blue-400">Revenir sur la gestion des works</a>
                   </div>
                   <h3 class="my-2 text-left py-2 text-2xl">Données du work</h3>
-                  <form action="{{ route('admin.works.store') }}" method="post" enctype="multipart/form-data">
+                  <form action="{{ route('admin.works.update', $work->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    {{ method_field('PUT') }}
                     {{-- TITRE --------}}
                     <div class="mb-1">
                       <label for="title">Titre</label>
                     </div>
                     <div class="mb-4 w-3/12">
-                      <input class="w-full border" type="text" name="title" id="title">
+                      <input class="w-full border" type="text" name="title" id="title" value="{{ $work->title }}">
                     </div>
                     {{-- CONTENU --------}}
                     <div>
                       <label for="content">Contenu</label>
                     </div>
                     <div class="mb-4 w-4/12">
-                      <textarea class="w-full border h-32" name="content" id="content"></textarea>
+                      <textarea class="w-full border h-32" name="content" id="content">{{ $work->content }}</textarea>
                     </div>
                     {{-- IMAGE --------}}
                     <div class="mb-1">
-                      <label for="image">Image</label>
+                      <label for="image">Image {{ $work->image }}</label>
                     </div>
                     <div class="mb-4">
                       <input type="file" name="image" id="image">
@@ -54,8 +54,8 @@
                     </div>
                     <div class="mb-4">
                       <select name="inSlider" id="inSlider">
-                        <option value="1">Oui</option>
-                        <option value="2">Non</option>
+                        <option value="1" {{ ($work->inSlider === 1) ? 'selected' : '' }}>Oui</option>
+                        <option value="2" {{ ($work->inSlider === 0) ? 'selected' : '' }}>Non</option>
                       </select>
                     </div>
                     {{-- CLIENT --------}}
@@ -65,7 +65,9 @@
                     <div class="mb-4">
                       <select name="client_id" id="client_id">
                         @foreach ($clients as $client)
-                          <option class="w-full border" value="{{ $client->id }}">{{ $client->name }}</option>
+                          <option class="w-full border" value="{{ $client->id }}" {{ ($client->id === $work->client_id) ? 'selected' : '' }}>
+                            {{ $client->name }}
+                          </option>
                         @endforeach
                       </select>
                     </div>
@@ -75,7 +77,10 @@
                     </div>
                     @foreach ($tags as $tag)
                       <div class="pl-4 mb-1">
-                        <input type="checkbox" name="tags[]" id="{{ $tag->name }}" value="{{ $tag->id }}">
+                        <input type="checkbox" name="tags[]" id="{{ $tag->name }}" value="{{ $tag->id }}"
+                         @foreach ($work->tags as $workTag)
+                           {{ $workTag->id === $tag->id ? 'checked' : '' }}
+                         @endforeach>
                         <label for="{{ $tag->name }}">{{ $tag->name }}</label>
                       </div>
                     @endforeach

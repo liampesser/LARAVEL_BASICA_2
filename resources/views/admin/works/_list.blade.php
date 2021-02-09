@@ -15,8 +15,8 @@
     <td class="border px-4 py-2">{{ $work->client->name }}</td>
     <td class="border px-4 py-2">@include('tags._work_tags', ['tags' => $work->tags])</td>
     <td class="border px-4 py-2">
-      <a href="#" class="block py-2">Editer</a> <hr>
-      <form action="#" method="post">
+      <a href="{{ route('admin.works.edit', $work->id) }}" class="block py-2">Editer</a> <hr>
+      <form action="{{ route('admin.works.destroy', $work->id) }}" method="post">
         {{ csrf_field() }}
         {{ method_field('DELETE') }}
         <button type="submit" class="block py-2 text-red-500">Supprimer</button>

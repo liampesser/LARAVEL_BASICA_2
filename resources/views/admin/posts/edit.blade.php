@@ -38,7 +38,7 @@
                       <textarea class="w-full border h-32" name="content" id="content">{{ $post->content }}</textarea>
                     </div>
                     <div>
-                      <label for="image">Image</label>
+                      <label for="image">Image {{ $post->image }}</label>
                     </div>
                     <div class="mb-2 w-4/12">
                       <input type="file" name="image" id="image">
@@ -49,7 +49,7 @@
                     <div class="mb-4">
                       <select name="categorie_id" id="categorie_id">
                         @foreach ($categories as $categorie)
-                          <option class="w-full border" value="{{ $categorie->id }}" @php if($categorie->id === $post->categorie_id) {echo 'selected';} @endphp>
+                          <option class="w-full border" value="{{ $categorie->id }}" {{ ($categorie->id === $post->categorie_id) ? 'selected' : '' }}>
                             {{ $categorie->name }}
                           </option>
                         @endforeach
