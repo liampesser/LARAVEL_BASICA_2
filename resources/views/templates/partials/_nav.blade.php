@@ -16,7 +16,7 @@
                 <li><a href="{{ route('posts.index') }}">Blog</a></li>
                 <li><a href="{{ route('contact') }}">Contact</a></li>
                 @if (!Auth::check())
-                  <li><a href="{{ route('login') }}">Login</a></li>
+                  <li><a href="{{ route('login') }}">Log in</a></li>
                   <li><a href="{{ route('register') }}">Sign up</a></li>
                 @endif
                 @if (Auth::check())

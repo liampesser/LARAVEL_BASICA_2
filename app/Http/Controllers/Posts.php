@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 
 class Posts extends Controller
 {
@@ -15,8 +16,8 @@ class Posts extends Controller
    */
   public function index(int $limit = 4) {
       $posts = Post::orderBy('created_at', 'DESC')
-                   ->take($limit)
-                   ->get();
+                  // Pagination automatique de Laravel
+                   ->paginate($limit);
       return view('posts.index', compact('posts'));
   }
 

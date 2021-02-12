@@ -21,20 +21,15 @@
   <div class="section">
     <div class="container">
       <div class="row">
-        
+
         {{-- VUE DES CARDS DES POSTS --}}
         @include('posts._cards')
 
         <!-- Pagination -->
         <div class="pagination-wrapper ">
           <ul class="pagination pagination-sm">
-            <li class="disabled"><a href="#">Previous</a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">Next</a></li>
+            {{-- https://laracasts.com/discuss/channels/laravel/laravel-55-pagination-for-bootstrap-4 --}}
+            {!! $posts->links() !!}
           </ul>
         </div>
       </div>
