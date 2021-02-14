@@ -2,6 +2,7 @@
   Variables disponibles
     - $clients : ARRAY(Client)
     - $tags : ARRAY(Tag)
+    - $works : ARRAY(Work)
 --}}
 
 @php

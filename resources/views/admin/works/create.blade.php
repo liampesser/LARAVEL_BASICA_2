@@ -1,8 +1,8 @@
 {{--
   Variables disponibles
-    - $works : ARRAY(Work)
     - $clients : ARRAY(Client)
     - $tags : ARRAY(Tag)
+    - $works : ARRAY(Work)
 --}}
 
 @php

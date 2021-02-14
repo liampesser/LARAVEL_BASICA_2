@@ -28,7 +28,7 @@
           <!-- End Map -->
     </div>
 
-</div>
+  </div>
 
   <div class="section">
   <div class="container">

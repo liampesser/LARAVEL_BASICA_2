@@ -3,6 +3,6 @@
     - $tags ARRAY(Tag)
  --}}
 
-  @foreach ($tags as $tag)
-    {{ $tag->name }},
-  @endforeach
+ @foreach ($tags as $index => $tag)
+   {{ $tag->name }}{{ $index === (count($tags) - 1) ? '' : ',' }}
+ @endforeach

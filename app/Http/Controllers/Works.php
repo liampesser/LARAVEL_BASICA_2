@@ -9,7 +9,7 @@ class Works extends Controller
 {
 
   /**
-   * Index des works
+   * Fonction qui retourne la vue index des works
    * @param  integer $limit [description]
    * @return [type]         [description]
    */
@@ -21,7 +21,7 @@ class Works extends Controller
   }
 
   /**
-   * Détails d'un work
+   * Fonction qui retourne la vue du détail d'un work
    * @param  Work   $work [description]
    * @return [type]       [description]
    */
@@ -30,7 +30,7 @@ class Works extends Controller
     }
 
     /**
-     * More works
+     * Fonction qui retourne la vue more works
      * @param  Request $request [description]
      * @return [type]           [description]
      */

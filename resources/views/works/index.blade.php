@@ -16,6 +16,7 @@
   Our Portfolio
 @endsection
 
+{{-- SCRIPT DU MORE POST --}}
 @section('scripts')
   <script src="{{ asset('assets/js/works/index.js')}}"></script>
 @endsection
@@ -34,7 +35,6 @@
 						sed mattis consequat, libero ante lacinia arcu, ac porta lacus urna in lorem. Praesent consectetur tristique
 						augue, eget elementum diam suscipit id. Donec elementum mi vitae enim fermentum lobortis.
 					</p>
-
 				</div>
 			</div>
 		</div>

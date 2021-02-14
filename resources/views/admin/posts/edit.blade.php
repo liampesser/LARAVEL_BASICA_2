@@ -1,6 +1,7 @@
 {{--
   Variables disponibles
     - $categories ARRAY(Categorie)
+    - $posts ARRAY(Post)
 --}}
 
 @php

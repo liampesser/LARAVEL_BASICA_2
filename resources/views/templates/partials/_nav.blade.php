@@ -11,13 +11,13 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="{{ route('home') }}">Home</a></li>
-                <li><a href="{{ route('works.index') }}">Portfolio</a></li>
-                <li><a href="{{ route('posts.index') }}">Blog</a></li>
-                <li><a href="{{ route('contact') }}">Contact</a></li>
+              {{-- https://apical.xyz/fiches/ou_sommes_nous/Identification_visuelle_pour_le_menu_actif --}}
+                <li {!! Route::currentRouteName() == 'home' ? ' class="active"' : null !!}><a href="{{ route('home') }}">Home</a></li>
+                <li {!! Str::contains(Route::currentRouteName(), 'works') ? ' class="active"' : null !!}><a href="{{ route('works.index') }}">Portfolio</a></li>
+                <li {!! Str::contains(Route::currentRouteName(), 'posts') ? ' class="active"' : null !!}><a href="{{ route('posts.index') }}">Blog</a></li>
+                <li {!! Str::contains(Route::currentRouteName(), 'contact') ? ' class="active"' : null !!}><a href="{{ route('contact') }}">Contact</a></li>
                 @if (!Auth::check())
                   <li><a href="{{ route('login') }}">Log in</a></li>
-                  <li><a href="{{ route('register') }}">Sign up</a></li>
                 @endif
                 @if (Auth::check())
                   <li><a href="{{ route('dashboard') }}">Dashboard</a></li>

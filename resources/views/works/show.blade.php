@@ -54,7 +54,9 @@
 
   <hr>
 
-  {{-- VUE SIMILAR WORKS --}}
+  {{-- VUE SIMILAR WORKS
+    https://stackoverflow.com/questions/50322111/laravel-get-related-posts-by-tags
+   --}}
   @include('works._similar', ['works' => \App\Models\Work::whereHas('tags', function ($query) use ($work) {
     return $query->whereIn('name', $work->tags->pluck('name'));
     })
